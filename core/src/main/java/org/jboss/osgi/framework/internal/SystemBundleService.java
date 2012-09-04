@@ -134,8 +134,7 @@ public final class SystemBundleService extends AbstractBundleService<SystemBundl
 
         // Construct framework capabilities from system packages
         for (String packageSpec : exportedPackages) {
-            int versionIndex = packageSpec.indexOf(";version=");
-            if (versionIndex <= 0) {
+            if (!packageSpec.matches(".*;\\s*version=.*")) {
                 packageSpec += ";version=0.0.0";
             }
 
